@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Wheel of Misfortune</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0" />
+
+    <link rel="apple-touch-icon" href="touch-icon-iphone.png">
+    <link rel="apple-touch-icon" sizes="76x76" href="touch-icon-ipad.png">
+    <link rel="apple-touch-icon" sizes="120x120" href="touch-icon-iphone-retina.png">
+
+    <link href="https://fonts.googleapis.com/css?family=Do+Hyeon" rel="stylesheet">
+    <link href='https://fonts.googleapis.com/css?family=Lato' rel='stylesheet' type='text/css'>
+    <link href="http://fonts.cdnfonts.com/css/horror-type" rel="stylesheet" type='text/css'>
+    <link href="css/main.css" rel="stylesheet" type='text/css'>
+
+    <script src="https://code.jquery.com/jquery-2.1.3.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/gsap.min.js"></script>
+
+    <script src="js/clues.js"></script>
+    <script src="js/script.js"></script>
+
+</head>
+
+<body>
+    <div id="enter-site">
+        <div id="btnenter" onclick="openInNewTab('game.html');">Play?</div>
+    </div>
+
+
+    </div>
+
+    <script>
+        var btnEnter = document.getElementById("btnenter");
+
+        btnEnter.onclick = async function() {
+            window.open("game.html");
+            playAmbient.addEventListener('ended', function() {
+                this.currentTime = 0;
+                this.play();
+            }, false);
+            wheelofMisfortune.play();
+            playAmbient.play();
+            await sleep(15 * 1000);
+            chooseOpponent.play();
+
+        };
+    </script>
+</body>
+
+</html>

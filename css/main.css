@@ -1,0 +1,585 @@
+@font-face {
+     font-family: 'YouMurderer BB';
+     src: url('../fonts/YouMurdererBB.woff2') format('woff2'), url('../fonts/YouMurdererBB.woff') format('woff');
+     font-weight: normal;
+     font-style: normal;
+     font-display: swap;
+}
+ .wrapper {
+     position: absolute;
+     top: 0;
+     height: 100vh;
+     width: 100vw;
+     font-family: 'YouMurderer BB';
+     font-weight: normal;
+     font-style: normal;
+     background-color:#F0EFEB;
+     text-align: center;
+     background: url(../images/halloween_bg2.gif) no-repeat center center fixed;
+     -webkit-background-size: cover;
+     -moz-background-size: cover;
+     -o-background-size: cover;
+     background-size: cover;
+     background-color: black;
+}
+ #enter-site {
+     width: 100vw;
+     height: 100vh;
+     background: url(../images/halloween_bg2.gif) no-repeat center center fixed;
+     -webkit-background-size: cover;
+     -moz-background-size: cover;
+     -o-background-size: cover;
+     background-size: cover;
+     background-color: black;
+     display: flex;
+     align-items: center;
+     justify-content: center;
+     z-index: 10;
+}
+ #btnenter {
+     background: transparent;
+     font-family: 'YouMurderer BB';
+     color: darkred;
+     border: none;
+     font-size: 10rem;
+     transition: transform 150ms ease-in-out;
+}
+ #btnenter:hover {
+     color: red;
+     transform: scale(1.2);
+}
+ #btnenter:active {
+     transform: scale(0.95);
+}
+ body {
+     height: 100vh;
+     width: 100vw;
+}
+ #content {
+     justify-content: center;
+     display: flex;
+}
+ .column1 {
+     flex-grow: 1 
+}
+ .column2 {
+     flex-grow: 1;
+}
+ .column3 {
+     flex-grow: 1;
+}
+ h1 {
+     font-size: 200px;
+     font-weight: 100;
+     letter-spacing: 20px;
+     color: red;
+     margin-top: 0;
+     margin-bottom: 40px;
+     margin-left: auto;
+     margin-right: auto;
+     line-height: 200px;
+}
+ table {
+     margin:0px auto;
+     border-spacing: 10px;
+    !important;
+     background-color: rgba(0, 0, 0, 0.0);
+     border-radius: 50px;
+}
+ .tile {
+     background: rgb(9,9,121);
+     background: linear-gradient(183deg, rgba(167,29,49,.9) 0%, rgba(63,13,18,.9) 60%);
+}
+ td {
+     border-radius: 15px;
+     box-shadow: 0 8px 6px -6px black;
+     height: 125px;
+     min-width: 100px;
+     text-align: center;
+     transition: transform 1s;
+     transform:rotateY(0deg);
+     font-size: 120px;
+}
+ .hidden-tile {
+     border:0px;
+     opacity: 0;
+}
+ .blank-tile {
+     background: rgb(215,225,236);
+     background: linear-gradient(0deg, rgba(215,225,236,1) 0%, rgba(255,255,255,1) 100%);
+     opacity: 1;
+     transform:rotateY(360deg);
+}
+ .highlight {
+     background: rgb(255, 117, 24);
+     color: rgba(0, 0, 0, 0.0);
+     background-image: url('../images/pumpkin.png');
+     background-size: cover;
+     background-repeat: no-repeat;
+     background-attachment: fixed;
+     background-position: center;
+     transform:rotateY(180deg);
+     cursor: pointer;
+}
+ #category {
+     height: 60px;
+     width: 600px;
+     margin: 0px auto;
+     font-size: 60px;
+     letter-spacing: 5px;
+     color: yellow;
+}
+ #instructions, #game-options {
+     font-size: 60px;
+     height: auto;
+     max-width: 60%;
+     margin: 0px auto;
+     transition: color 1s;
+}
+ #instructions {
+     margin-top: 25px;
+     margin-bottom: 25px;
+     color: white;
+     font-size:60px;
+     letter-spacing: 10px;
+}
+ .player-box{
+     display: inline-block;
+     font-size: 100px;
+     color: purple;
+}
+ .player-box div {
+     height:60px;
+}
+ #p1-bank, #p2-bank {
+     color:grey;
+}
+ textarea:focus, input:focus{
+     outline: none;
+}
+ .name-input {
+     font-family: 'YouMurderer BB';
+     font-size: 80px;
+     color: orange;
+     letter-spacing: 5px;
+    /*width: 325px;
+    */
+     margin:5px 10px;
+     height: 80px;
+     text-align: center;
+     background-color: transparent;
+     border: none;
+}
+ #guess-input {
+     margin-top: 25px;
+     font-family: 'YouMurderer BB';
+     font-size: 60px;
+     width: 600px;
+     height: 60px;
+     text-align: center;
+     background-color: transparent;
+     border: none;
+}
+ #guess-input:focus {
+     outline: none;
+}
+ button {
+     cursor: pointer;
+     border:0px;
+     border-radius: 3px;
+     font-size: 20px;
+     transition: background-color .5s;
+     color:white;
+     box-shadow: 0px 5px #bbb;
+}
+ button:active {
+     box-shadow: 0px 2px #aaa;
+     transform: translateY(3px);
+}
+ .btnRow {
+     margin-top: 25px;
+}
+ .btnColumn {
+     display: inline-block;
+     width: 250px;
+     margin-left: 50px;
+     margin-right: 50px;
+}
+/* Buttons Hide By Default */
+ #spin, #solve, #buy-vowel, #guess-input {
+     display: none;
+}
+/* Continue Arrow */
+ .arrow {
+     display: block;
+     cursor: pointer;
+     position: relative;
+     margin: 25px auto;
+     width: 60px;
+     height: 60px;
+     border: solid 2px green;
+     border-radius: 100%;
+     z-index: 1;
+     transition: all 0.2s linear;
+     background-color: lightgreen;
+}
+ .arrow:before, .arrow:after {
+     content: "";
+     position: absolute;
+     width: 35%;
+     height: 10%;
+     top: 41%;
+     left: 55%;
+     background: green;
+    /* Carot Color Before > */
+     z-index: 2;
+     transform: translate(-50%, -50%) rotate(45deg);
+     transition: all 0.2s linear;
+}
+ .arrow:after {
+     z-index: 3;
+     top: 59%;
+     left: 55%;
+     transform: translate(-50%, -50%) rotate(-45deg);
+}
+ .arrow:hover {
+     border: solid 4px white;
+    /* Outer Circle Hover Color */
+     scale: 1.2;
+}
+ .arrow:hover:after, .arrow:hover:before {
+     background: white;
+    /* Carot Color After > */
+     opacity: 1;
+}
+ .arrow:active {
+     border: solid 4px white;
+     opacity: 1;
+     scale: .8;
+}
+ .arrow:active:after, .arrow:active:before {
+     background: white;
+     opacity: 1;
+}
+/* All Button Configurations */
+ #start, #continue, #spin, #solve, #buy-vowel {
+     width: 250px;
+     opacity: .9;
+     border-radius: 15px;
+     transition: transform 150ms ease-in-out;
+     color: white;
+}
+/* All Button Hover */
+ #start:hover, #continue:hover, #spin:hover, #solve:hover, #buy-vowel:hover {
+     transform: scale(1.2);
+}
+/* All Button Press */
+ #start:active, #continue:active, #spin:active, #solve:active, #buy-vowel:active {
+     transform: scale(0.95);
+}
+/* The Start Button */
+ #start {
+     margin: 0px auto;
+    /* Centered */
+     background-color: palevioletred;
+}
+/* The Continue Button */
+ #continue {
+     margin: 0px auto;
+     background-color: #ECFFDC;
+}
+/* The Spin Button */
+ #spin {
+     background-color: #3498DB;
+}
+ #spin:hover {
+     background-color: #2980B9;
+}
+/* The Vowel Button */
+ #buy-vowel {
+     background-color: #E67E22;
+}
+ #buy-vowel:hover {
+     background-color: #D35400;
+}
+/* The Solve Button */
+ #solve {
+     background-color: #34495E;
+}
+ #solve:hover {
+     background-color: #2C3E50;
+}
+/* Guess Input */
+ #guess-input {
+     border: 2px solid gray;
+}
+ #guess-input:hover {
+     background-color: white;
+}
+ @media (max-width: 760px) {
+     #category {
+         font-size: 90%;
+         width: 300px;
+         height: 20px;
+    }
+     #content{
+         margin-top:5px;
+         flex-wrap: wrap;
+    }
+     #instructions {
+         height:auto;
+    }
+     .tile, td {
+         height: 30px;
+         min-width: 25px;
+         font-size: 25px;
+    }
+     .column1 {
+         margin-bottom:10px;
+    }
+}
+/* The Modal (background) */
+ .ebcf_modal {
+     display: none;
+    /* Hidden by default */
+     z-index: 1;
+    /* Sit on top */
+     position:fixed;
+     top:0;
+     left:0;
+     right:0;
+     bottom:0;
+     text-align:center;
+     background-color: rgb(0,0,0);
+    /* Fallback color */
+     background-color: rgba(0,0,0,0.4);
+    /* Black w/ opacity */
+     backdrop-filter: blur(10px);
+}
+ .square-container {
+     font-family: "Do Hyeon", sans-serif;
+     vertical-align:middle;
+     max-width:1240px;
+     display: flex;
+     flex-wrap: wrap;
+     margin: 125px auto;
+}
+ .square {
+     box-sizing: border-box;
+     border: 2px solid black;
+     flex: 0 0 400px;
+     display: flex;
+     justify-content: center;
+     align-items: center;
+     height: 400px;
+     background-image: url('../images/tile.png');
+}
+ .square.square:not(:nth-child(3n)) {
+     margin-right: 10px;
+}
+ .square.square:not(:nth-child(n+7)) {
+     margin-bottom: 10px;
+}
+ .square.is-active {
+     border: 5px solid orange;
+}
+ .square__content {
+     font-size: 5em;
+     color: orange;
+     font-family: 'YouMurderer BB';
+}
+ .badtile {
+     color: red;
+}
+ .square__start-btn {
+     font-family: 'YouMurderer BB';
+     background-image: url('../images/evilpumpkin.png');
+     opacity: 1;
+     background-size: 400px;
+     color: white;
+     font-size: 6em;
+     letter-spacing: 5px;
+     cursor: pointer;
+}
+ .square__start-btn:hover {
+     background-image: url('../images/evilpumpkin.gif');
+     color: white;
+}
+ .stack {
+     display: grid;
+     grid-template-columns: 1fr;
+}
+ .stack span {
+     font-weight: bold;
+     grid-row-start: 1;
+     grid-column-start: 1;
+     font-size: 4rem;
+     --stack-height: calc(100% / var(--stacks) - 1px);
+     --inverse-index: calc(calc(var(--stacks) - 1) - var(--index));
+     --clip-top: calc(var(--stack-height) * var(--index));
+     --clip-bottom: calc(var(--stack-height) * var(--inverse-index));
+     clip-path: inset(var(--clip-top) 0 var(--clip-bottom) 0);
+     animation: stack 340ms cubic-bezier(.46,.29,0,1.24) 1 backwards calc(var(--index) * 120ms), glitch 2s ease infinite 2s alternate-reverse;
+}
+ .stack span:nth-child(odd) {
+     --glitch-translate: 8px;
+}
+ .stack span:nth-child(even) {
+     --glitch-translate: -8px;
+}
+ @keyframes stack {
+     0% {
+         opacity: 0;
+         transform: translateX(-50%);
+         text-shadow: -2px 3px 0 red, 2px -3px 0 orangered;
+    }
+    ;
+     60% {
+         opacity: 0.5;
+         transform: translateX(50%);
+    }
+     80% {
+         transform: none;
+         opacity: 1;
+         text-shadow: 2px -3px 0 red, -2px 3px 0 orangered;
+    }
+     100% {
+         text-shadow: none;
+    }
+}
+ @keyframes glitch {
+     0% {
+         text-shadow: -2px 3px 0 red, 2px -3px 0 orangered;
+         transform: translate(var(--glitch-translate));
+    }
+     2% {
+         text-shadow: 2px -3px 0 red, -2px 3px 0 orangered;
+    }
+     4%, 100% {
+         text-shadow: none;
+         transform: none;
+    }
+}
+ #toast.red {
+     color: red;
+}
+ #toast.green {
+     color: green;
+}
+ #toast {
+     visibility: hidden;
+     width: 100vw;
+     height: 100vh;
+    /*margin-left: -125px;
+    */
+     margin: auto;
+     display: flex;
+     align-items: center;
+     justify-content: center;
+     position: fixed;
+     z-index: 10;
+     font-size: 700px;
+     white-space: nowrap;
+}
+ #toast.show {
+     visibility: visible;
+     -webkit-animation: fadeinout 4s linear forwards;
+     animation: fadeinout 4s linear forwards;
+}
+ @-webkit-keyframes fadeinout {
+     0%,100% {
+         opacity: 0;
+    }
+     50% {
+         opacity: 1;
+    }
+}
+ @keyframes fadeinout {
+     0%,100% {
+         opacity: 0;
+    }
+     50% {
+         opacity: 1;
+    }
+}
+ .animate-reveal {
+     opacity: 0;
+     -webkit-animation: reveal 3s cubic-bezier(0, 1, 0.5, 1) 1 normal forwards;
+     -moz-animation: reveal 3s ease-in 1 normal forwards;
+     -o-animation: reveal 3s cubic-bezier(0, 1, 0.5, 1) 1 normal forwards;
+     animation: reveal 3s cubic-bezier(0, 1, 0.5, 1) 1 normal forwards;
+}
+ .animate-first {
+     -webkit-animation-delay: 0;
+     -moz-animation-delay: 0;
+     -o-animation-delay: 0;
+     animation-delay: 0;
+}
+ @-webkit-keyframes reveal {
+     0% {
+         opacity: 0;
+         -webkit-transform: translateY(100%);
+         -moz-transform: translateY(100%);
+         -o-transform: translateY(100%);
+         transform: translateY(100%);
+    }
+     100% {
+         opacity: 1;
+         -webkit-transform: translateY(0);
+         -moz-transform: translateY(0);
+         -o-transform: translateY(0);
+         transform: translateY(0);
+    }
+}
+ @-moz-keyframes reveal {
+     0% {
+         opacity: 0;
+         -webkit-transform: translateY(100%);
+         -moz-transform: translateY(100%);
+         -o-transform: translateY(100%);
+         transform: translateY(100%);
+    }
+     100% {
+         opacity: 1;
+         -webkit-transform: translateY(0);
+         -moz-transform: translateY(0);
+         -o-transform: translateY(0);
+         transform: translateY(0);
+    }
+}
+ @-o-keyframes reveal {
+     0% {
+         opacity: 0;
+         -webkit-transform: translateY(100%);
+         -moz-transform: translateY(100%);
+         -o-transform: translateY(100%);
+         transform: translateY(100%);
+    }
+     100% {
+         opacity: 1;
+         -webkit-transform: translateY(0);
+         -moz-transform: translateY(0);
+         -o-transform: translateY(0);
+         transform: translateY(0);
+    }
+}
+ @keyframes reveal {
+     0% {
+         opacity: 0;
+         -webkit-transform: translateY(100%);
+         -moz-transform: translateY(100%);
+         -o-transform: translateY(100%);
+         transform: translateY(100%);
+    }
+     100% {
+         opacity: 1;
+         -webkit-transform: translateY(0);
+         -moz-transform: translateY(0);
+         -o-transform: translateY(0);
+         transform: translateY(0);
+    }
+}
+
+{
+    cursor: url(https://cur.cursors-4u.net/cursors/cur-1/cur3.ani), url(https://cur.cursors-4u.net/cursors/cur-1/cur3.png), auto !important;
+}
